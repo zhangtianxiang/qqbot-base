@@ -14,7 +14,7 @@ async def help(session: CommandSession):
     arg = session.current_arg_text.strip().lower()
     if not arg:
         # 如果用户没有发送参数，则发送功能列表
-        await session.send('我现在支持的功能有：\n\n' + ''.join(p.name for p in plugins))
+        await session.send('现在支持的功能有：\n' + '\n'.join(p.name for p in plugins) + '\n使用 !help <功能> 查看详细信息')
     else:
         # 如果发了参数则发送相应命令的使用帮助
         for p in plugins:
