@@ -6,7 +6,7 @@ from nonebot import on_command, CommandSession
 import config
 
 
-@on_command('help', aliases=['使用帮助', '帮助', '使用方法'], only_to_me=False)
+@on_command('help', aliases=['usage', '帮助'], only_to_me=False)
 async def help(session: CommandSession):
     # 获取设置了名称的插件列表
     plugins = list(filter(lambda p: p.name, nonebot.get_loaded_plugins()))
@@ -27,7 +27,5 @@ async def help(session: CommandSession):
 if __name__ == '__main__':
     nonebot.init(config)
     nonebot.load_plugins(
-        path.join(path.dirname(__file__), 'plugins'),
-        'plugins'
-    )
+        path.join(path.dirname(__file__), 'plugins'), 'plugins')
     nonebot.run()
