@@ -6,17 +6,14 @@ from nonebot import on_command, CommandSession
 import config
 
 
-@on_command('help', aliases=['usage', '帮助'], only_to_me=False)
+@on_command('help', aliases=['usage'], only_to_me=False)
 async def help(session: CommandSession):
-    # 获取设置了名称的插件列表
     plugins = list(filter(lambda p: p.name, nonebot.get_loaded_plugins()))
 
     arg = session.current_arg_text.strip().lower()
     if not arg:
-        # 如果用户没有发送参数，则发送功能列表
         await session.send('现在支持的功能有：\n' + '\n'.join(p.name for p in plugins) + '\n使用 !help <功能> 查看详细信息')
     else:
-        # 如果发了参数则发送相应命令的使用帮助
         for p in plugins:
             if p.name.lower() == arg:
                 await session.send(p.usage)

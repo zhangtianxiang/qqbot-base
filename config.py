@@ -7,6 +7,6 @@ COMMAND_START = ['！', '/', '!', '／', '！']  # 可以使用re
 HOST = '127.0.0.1'
 PORT = 8080
 
-# ztx's config
+# qqbot-base提供给插件的配置
 
 PLUGIN_DIR = 'plugins'
